@@ -30,14 +30,7 @@ export const Header = ({ logo, background, nav, fullscreen }: HeaderProps) => {
       </NextLink>
       <Nav {...nav} fullscreen={fullscreen} />
       {background?.poster && background?.video && (
-        <video
-          className={styles.video}
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster={background.poster}
-        >
+        <video className={styles.video} autoPlay muted loop playsInline poster={background.poster}>
           <source src={background.video} type="video/mp4" />
         </video>
       )}

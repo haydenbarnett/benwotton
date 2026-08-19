@@ -10,7 +10,9 @@
   justify-content: center;
   align-items: center;
   z-index: 5;
-  transition: var(--duration) ease border, var(--duration) ease background-color,
+  transition:
+    var(--duration) ease border,
+    var(--duration) ease background-color,
     var(--duration) ease height;
 
   &.fullscreen {

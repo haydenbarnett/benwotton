@@ -1,0 +1,5 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "ignorePatterns": ["next-env.d.ts", "public/robots.txt", "public/sitemap*.xml"],
+  "printWidth": 100
+}

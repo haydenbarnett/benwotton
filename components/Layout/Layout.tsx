@@ -14,12 +14,7 @@ export const Layout = ({ logo, background, nav, children }: LayoutProps) => {
   const fullscreen = !router.query?.uid;
   return (
     <>
-      <Header
-        logo={logo}
-        background={background}
-        nav={nav}
-        fullscreen={fullscreen}
-      />
+      <Header logo={logo} background={background} nav={nav} fullscreen={fullscreen} />
       {children}
     </>
   );

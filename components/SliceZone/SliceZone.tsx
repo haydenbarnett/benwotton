@@ -6,7 +6,7 @@ export type SliceZoneProps = {
   projects?: ProjectProps[];
 };
 
-export const SliceZone = ({ slices, projects }: SliceZoneProps) => {
+export const SliceZone = ({ slices = [], projects }: SliceZoneProps) => {
   return (
     <div className="slice">
       {slices.map((slice: any, i: number) => {

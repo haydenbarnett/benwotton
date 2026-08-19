@@ -10,7 +10,7 @@ const fetchDocs: any = async (page = 1, routes = []) => {
   if (response.results_size + routes.length < response.total_results_size) {
     return fetchDocs(page + 1, allRoutes);
   }
-  return [...Array.from(new Set(allRoutes))];
+  return Array.from(new Set(allRoutes));
 };
 
 export const queryRepeatableDocuments = async (filter: any) => {

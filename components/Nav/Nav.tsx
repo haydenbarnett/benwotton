@@ -38,13 +38,7 @@ export const Nav = ({ items, resume, email, fullscreen }: NavProps) => {
       {resume && (
         <div className={styles.link}>
           <Link href={resume} target="_blank" rel="noopener noreferrer">
-            <Image
-              className={styles.image}
-              src="/icon-resume.svg"
-              width={16}
-              height={16}
-              alt=""
-            />
+            <Image className={styles.image} src="/icon-resume.svg" width={16} height={16} alt="" />
             Resume
           </Link>
         </div>
@@ -52,13 +46,7 @@ export const Nav = ({ items, resume, email, fullscreen }: NavProps) => {
       {email && (
         <div className={styles.link}>
           <Link href={email}>
-            <Image
-              className={styles.image}
-              src="/icon-email.svg"
-              width={16}
-              height={16}
-              alt=""
-            />
+            <Image className={styles.image} src="/icon-email.svg" width={16} height={16} alt="" />
             Email
           </Link>
         </div>

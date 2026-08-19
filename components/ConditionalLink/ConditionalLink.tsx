@@ -8,15 +8,15 @@ type ConditionalLinkProps = {
   children?: ReactNode;
 };
 
-export const ConditionalLink = ({
-  href,
-  target,
-  className,
-  children,
-}: ConditionalLinkProps) => {
+export const ConditionalLink = ({ href, target, className, children }: ConditionalLinkProps) => {
   if (href) {
     return (
-      <Link href={href} target={target} className={className}>
+      <Link
+        href={href}
+        target={target}
+        rel={target === "_blank" ? "noopener noreferrer" : undefined}
+        className={className}
+      >
         {children}
       </Link>
     );

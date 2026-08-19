@@ -1,13 +1,10 @@
 import Head from "next/head";
-import * as PrismicTypes from "@prismicio/types";
+import type { PrismicDocument } from "@prismicio/client";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { SliceZone } from "@components";
-import {
-  Client,
-  queryRepeatableDocuments,
-  pageResolver,
-  projectsResolver,
-} from "@utils";
+import { Client } from "../utils/prismicHelpers";
+import { queryRepeatableDocuments } from "../utils/queries";
+import { pageResolver, projectsResolver } from "../utils/resolvers";
 
 type PageProps = {
   page?: any;
@@ -38,9 +35,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const response = await client.get({
     pageSize: 200,
   });
-  const page = response.results.filter(
-    (doc) => doc.uid === context?.params?.uid
-  )[0];
+  const page = response.results.filter((doc) => doc.uid === context?.params?.uid)[0];
   const globals = response.results.filter((doc) => doc.type === "globals")[0];
   const projects = response.results.filter((doc) => doc.type === "project");
   return {
@@ -53,11 +48,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const pages = await queryRepeatableDocuments(
-    (doc: PrismicTypes.PrismicDocument) => doc.type === "page"
-  );
+  const pages = await queryRepeatableDocuments((doc: PrismicDocument) => doc.type === "page");
   return {
-    paths: pages.map((page: PrismicTypes.PrismicDocument) => `/${page.uid}`),
+    paths: pages.map((page: PrismicDocument) => `/${page.uid}`),
     fallback: false,
   };
 };

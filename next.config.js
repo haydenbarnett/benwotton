@@ -1,11 +1,27 @@
 /** @type {import('next').NextConfig} */
-const { createSecureHeaders } = require("next-secure-headers");
+const securityHeaders = [
+  { key: "Strict-Transport-Security", value: "max-age=63072000" },
+  { key: "X-Frame-Options", value: "deny" },
+  { key: "X-Download-Options", value: "noopen" },
+  { key: "X-Content-Type-Options", value: "nosniff" },
+  { key: "X-XSS-Protection", value: "1" },
+];
+
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ["images.prismic.io", "prismic-io.s3.amazonaws.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.prismic.io",
+      },
+      {
+        protocol: "https",
+        hostname: "prismic-io.s3.amazonaws.com",
+      },
+    ],
   },
   async headers() {
-    return [{ source: "/(.*)", headers: createSecureHeaders() }];
+    return [{ source: "/(.*)", headers: securityHeaders }];
   },
 };

@@ -3,9 +3,7 @@ import { API_ENDPOINT, API_TOKEN } from "../prismic-config";
 
 const createClientOptions = (req = null, prismicAccessToken = "") => {
   const reqOption = req ? { req } : {};
-  const accessTokenOption = prismicAccessToken
-    ? { accessToken: prismicAccessToken }
-    : {};
+  const accessTokenOption = prismicAccessToken ? { accessToken: prismicAccessToken } : {};
   return {
     ...reqOption,
     ...accessTokenOption,
@@ -13,6 +11,6 @@ const createClientOptions = (req = null, prismicAccessToken = "") => {
 };
 
 export const Client = (req = null) =>
-prismic.createClient(API_ENDPOINT, createClientOptions(req, API_TOKEN));
+  prismic.createClient(API_ENDPOINT, createClientOptions(req, API_TOKEN));
 
 export default Client;

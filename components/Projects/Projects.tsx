@@ -18,9 +18,7 @@ export const Projects = ({ projects }: ProjectsProps) => {
     <div className={styles.projects}>
       {sortedProjects.map((project, i: number) => {
         const { image, url, name, role } = project;
-        return (
-          <Project key={i} image={image} url={url} name={name} role={role} />
-        );
+        return <Project key={i} image={image} url={url} name={name} role={role} />;
       })}
     </div>
   );

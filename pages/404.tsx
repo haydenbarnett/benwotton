@@ -1,5 +1,5 @@
 import { GetStaticProps } from "next";
-import { Client } from "@utils";
+import { Client } from "../utils/prismicHelpers";
 
 const Error404 = () => {
   return null;

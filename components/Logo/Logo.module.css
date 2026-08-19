@@ -22,16 +22,9 @@
 
 .name {
   display: inline;
-  background: radial-gradient(
-      20% 49% at 12% 30%,
-      var(--grey-100) 0%,
-      rgba(239, 237, 239, 0) 100%
-    ),
-    radial-gradient(
-      24% 74% at 45% 30%,
-      var(--grey-100) 0%,
-      rgba(239, 237, 239, 0) 100%
-    ),
+  background:
+    radial-gradient(20% 49% at 12% 30%, var(--grey-100) 0%, rgba(239, 237, 239, 0) 100%),
+    radial-gradient(24% 74% at 45% 30%, var(--grey-100) 0%, rgba(239, 237, 239, 0) 100%),
     linear-gradient(0deg, var(--grey-400), var(--grey-400));
   background-clip: text;
   -webkit-background-clip: text;
@@ -40,7 +33,9 @@
 }
 
 .shadow {
-  text-shadow: 0 0.5px white, 0 4px 12px rgba(0, 0, 0, 0.5);
+  text-shadow:
+    0 0.5px white,
+    0 4px 12px rgba(0, 0, 0, 0.5);
   position: absolute;
   z-index: 1;
 }

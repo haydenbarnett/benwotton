@@ -11,17 +11,14 @@ export const Video = ({ url }: VideoProps) => {
       <div className={styles.container}>
         <div className={styles.videoWrapper}>
           <ReactPlayer
-            className="video"
-            url={url}
+            className={styles.video}
+            src={url}
             width="100%"
             height="100%"
+            controls
             config={{
               youtube: {
-                playerVars: {
-                  controls: 1,
-                  playsinline: 0,
-                  rel: 0,
-                },
+                rel: 0,
               },
             }}
           />
